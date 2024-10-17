@@ -12,13 +12,13 @@
   Add a new post
 </h2>
 
-<form action="/insert_post" method="post">
+<form class="mb-3" action="/insert_post" method="post" style="width:400px; background-color: violet" >
   <div>
     <label for="title_box">
       Title
     </label>
 
-    <input type="text" id="title_box" name="query_title">
+    <input style="background-color: violet" class="form-control" class="form-control" type="text" id="title_box" name="query_title">
   </div>
 
   <div>
@@ -26,7 +26,7 @@
       Body
     </label>
 
-    <textarea id="body_box" name="query_body" rows="3"></textarea>
+    <textarea style="background-color: violet" class="form-control" id="body_box" name="query_body" rows="3"></textarea>
   </div>
 
   <div>
@@ -34,10 +34,10 @@
       Expires on
     </label>
 
-    <input type="date" id="expires_on_box" name="query_expires_on">
+    <input style="background-color: violet" class="form-control" type="date" id="expires_on_box" name="query_expires_on">
   </div>
 
-  <input type="hidden" id="board_id_box" name="query_board_id" value="<%= @the_board.id %>">
+  <input style="background-color: violet boarber:black" type="hidden" id="board_id_box" name="query_board_id" value="<%= @the_board.id %>">
 
   <button>
     Add post
@@ -48,27 +48,27 @@
 
 <h2>Active posts</h2>
 
-<table border="1">
+<table class="table" border="1" style="width: 700px">
   <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Posted on</th>
-    <th>Expires on</th>
+    <th scope="col">Title</th>
+    <th scope="col">Body</th>
+    <th scope="col">Posted on</th>
+    <th scope="col">Expires on</th>
   </tr>
 
   <% @active_posts.each do |a_post| %>
     <tr>
-      <td><%= a_post.title %></td>
-      <td><%= a_post.body %></td>
-      <td><%= a_post.created_at.strftime("%b %e, %Y") %></td>
-      <td><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
+      <td scope="col"><%= a_post.title %></td>
+      <td scope="col"><%= a_post.body %></td>
+      <td scope="col"><%= a_post.created_at.strftime("%b %e, %Y") %></td>
+      <td scope="col"><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
     </tr>
   <% end %>
 </table>
 
 <h2>Expired posts</h2>
 
-<table border="1">
+<table border="1" style="width: 700px; margin-left:300px" >
   <tr>
     <th>Title</th>
     <th>Body</th>
@@ -78,10 +78,10 @@
 
   <% @expired_posts.each do |a_post| %>
     <tr>
-      <td><%= a_post.title %></td>
-      <td><%= a_post.body %></td>
-      <td><%= a_post.created_at.strftime("%b %e, %Y") %></td>
-      <td><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
+      <td scope="col"><%= a_post.title %></td>
+      <td scope="col"><%= a_post.body %></td>
+      <td scope="col"><%= a_post.created_at.strftime("%b %e, %Y") %></td>
+      <td scope="col"><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
     </tr>
   <% end %>
 </table>
